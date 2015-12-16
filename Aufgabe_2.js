@@ -1,4 +1,8 @@
-/**********************this is the structure***************************
+	//Laden Sie den folgenden Datensatz herunter (z.B. nach /home/nosql/Desktop)
+	//Importieren Sie den Datensatz mittels mongoimport -d test -c zips /home/nosql/Desktop/zips.json 
+
+/*
+*********************this is the structure***************************
 {
   "city": "ACMAR",
   "loc": [
@@ -25,9 +29,6 @@ db.zips.find({$and:[{"pop":{$gt:29778}},{$or:[{"loc.0":{$gt:-86.4}},{"loc.1":{$l
 
 
 
-
-
-
 	//Erstellen Sie einen Index auf dem Attribut pop, um die Bearbeitung der obigen Anfrage zu beschleunigen
 	//Hinweis: Mit der explain()-Methode können Sie sich Informationen über den Ausführungsplan anzeigen lassen
 //db.zips.getIndexes()			zeige alle Indexe
@@ -35,5 +36,8 @@ db.zips.find({$and:[{"pop":{$gt:29778}},{$or:[{"loc.0":{$gt:-86.4}},{"loc.1":{$l
 //db.zips.dropIndex( { "pop": 1 } )	lösche Index
 //db.zips.find({$and:[{"pop":{$gt:29778}},{$or:[{"loc.0":{$gt:-86.4}},{"loc.1":{$lt:40.2}}]}]}).explain()
 
-db.records.createIndex( { pop: 1 } )
-//Der Ausfuehrungsplan der Query hat sich wie erwartet veraendert.
+db.zips.createIndex( { pop: 1 } )
+/*
+Der Ausfuehrungsplan der Query hat sich wie erwartet veraendert.
+"stage" : "COLLSCAN"	gegen	"stage" : "IXSCAN"	etc.
+*/
