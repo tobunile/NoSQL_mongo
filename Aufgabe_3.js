@@ -1,9 +1,12 @@
+//Importieren sie den Datensatz mittels des Kommandos mongorestore --drop -v -d test /home/nosql/Desktop/dump/enron	
+
+
 	//Ermitteln Sie mithilfe des Aggregation Frameworks,
 	//an welche Email-Adresse die zweitmeisten
 	//Emails gesendet wurden
 
 //Query zum finden aller Dokumente die mehr als 1 Empfänger haben:
-//	db.messages.find({"headers.To.1":{$exists:1}})
+//	db.messages.find({"headers.To.1":{$exists:1}}).pretty()
 
 //iterativer Aufbau:
 //	db.messages.aggregate([])
