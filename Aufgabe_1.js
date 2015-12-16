@@ -1,5 +1,7 @@
+	
 	//Erstellen Sie eine Dokumentenkollektion images in der Datenbank test
 db.createCollection("images")
+
 	//Fügen Sie mithilfe der Mongo Shell die ersten drei Datensätze der Tabelle auf Folie 3-5 des Vorlesungsskriptes in
 	//die erstellte Dokumentkollektion ein (das Attribut id soll auf MongoDBs Id-Attribut _id abgebildet werden)
 db.images.insert(
@@ -13,6 +15,7 @@ db.images.insert(
 db.images.insert(
 {_id:3,"name":"snow.png","time":"17:56","user":"john","camera":"canon",
 "info":{"width":64,"height":64,"size":1253},"tags":["tahoe","powder"]}) 
+
 	//Geben Sie alle eingefügten Dokumente in der Mongo Shell aus (Funktion pretty() kann zur Formatierung verwendet werden)
 db.images.find().pretty()
 
@@ -22,3 +25,8 @@ db.images.find().pretty()
 
 	//Löschen Sie die Kollektion images
 //db.images.drop()
+
+
+
+/*Interessante Beobachtung: Der Java-Treiber fügt anscheinend Integer ein, während die Mongo-Shell Fließkomma verwendet.
+Das ist sichtbar bei der Java-Ausgabe. Es ist nicht in Aufgabenstellung gefordert das zu beheben.*/
